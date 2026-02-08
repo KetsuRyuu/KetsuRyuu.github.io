@@ -6,238 +6,258 @@
   <title>Jie Liu | Academic Homepage</title>
 
   <style>
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 50px 40px;
+    :root{
+      --text:#111;
+      --muted:#555;
+      --border:#e6e6e6;
+      --card:#fafafa;
+      --link:#0b57d0;
+    }
+
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: var(--text);
       line-height: 1.7;
-      color: #222;
     }
 
-    h1 {
-      font-size: 2.3em;
-      margin: 0 0 0.2em 0;
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 56px 22px;
     }
 
-    h2 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 6px;
-      margin-top: 2.2em;
-      margin-bottom: 0.9em;
-      font-size: 1.6em;
+    /* ===== Top Header ===== */
+    .top{
+      display:flex;
+      align-items:center;
+      gap: 28px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
     }
 
-    .subtitle {
-      color: #555;
-      margin-bottom: 1.8em;
+    .avatar{
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      object-fit: cover;          /* ⭐ 关键：适配 1024x1024 */
+      border: 1px solid var(--border);
+      background: #fff;
     }
 
-    /* Unified list style (same as your screenshot) */
-    .item-list {
-      padding-left: 20px; /* keeps the bullet */
+    .headline{
+      min-width: 0;
+    }
+
+    .headline h1{
+      font-size: 2.8rem;
+      font-weight: 850;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px 0;
+      line-height: 1.1;
+    }
+
+    .tagline{
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .links{
+      margin-top: 12px;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+    }
+
+    .links a{
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(11,87,208,0.3);
+      padding-bottom: 1px;
+    }
+
+    .links a:hover{
+      border-bottom-color: rgba(11,87,208,0.8);
+    }
+
+    /* ===== Sections ===== */
+    h2{
+      margin: 36px 0 14px 0;
+      font-size: 1.45rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 18px 20px;
+    }
+
+    ul{
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+    }
+
+    /* Publications */
+    .pub-list{
+      list-style: none;
+      padding: 0;
       margin: 0;
     }
 
-    .item-list li {
-      margin-bottom: 1.7em;
+    .pub{
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .item-title {
-      font-size: 1.05em;
-      margin-bottom: 0.15em;
+    .pub:last-child{
+      border-bottom: none;
     }
 
-    .item-date {
-      font-size: 1em;
-      margin-bottom: 0.35em;
+    .pub .title{
+      margin: 0 0 6px 0;
+      font-weight: 650;
     }
 
-    .item-desc {
-      color: #666;
+    .pub .meta{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
     }
 
-    .item-desc a {
-      color: #0645ad;
+    .pub a{
+      color: var(--link);
       text-decoration: none;
     }
 
-    .item-desc a:hover {
+    .pub a:hover{
       text-decoration: underline;
     }
 
-    .note {
-      color: #666;
-      font-size: 0.9em;
-      margin-top: -0.4em;
+    /* ===== Mobile ===== */
+    @media (max-width: 720px){
+      .container{
+        padding: 30px 16px;
+      }
+
+      .top{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .avatar{
+        width: 100px;
+        height: 100px;
+      }
+
+      .headline h1{
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
-    <img
-    src="image.png"
-    alt="Jie Liu"
-    style="
-      width: 160px;
-      border-radius: 50%;
-      display: block;
-      margin-bottom: 20px;
-    "
-  >
+  <div class="container">
 
-  <h1>Jie Liu</h1>
-  <div class="subtitle">
-    PhD Student · AI & Hydrometeorology<br>
-    Kyushu University, Japan
+    <!-- Header -->
+    <header class="top">
+      <img src="image.png" alt="Jie Liu" class="avatar">
+      <div class="headline">
+        <h1>Jie Liu</h1>
+        <p class="tagline">
+          PhD Student · AI &amp; Hydrometeorology · Kyushu University, Japan
+        </p>
+        <ul class="links">
+          <li><a href="mailto:liu.jie.795@kyushu-u.ac.jp">Email</a></li>
+          <li><a href="https://ketsuryuu.github.io/">GitHub</a></li>
+          <!-- 可选 -->
+          <!-- <li><a href="#">Google Scholar</a></li> -->
+          <!-- <li><a href="#">CV (PDF)</a></li> -->
+        </ul>
+      </div>
+    </header>
+
+    <!-- Research -->
+    <h2>Research Interests</h2>
+    <div class="card">
+      <ul>
+        <li>Rainfall-induced landslide risk assessment</li>
+        <li>Rainfall nowcasting using machine learning</li>
+        <li>Water-level and flood prediction</li>
+        <li>Data augmentation and data assimilation in geoscience</li>
+      </ul>
+    </div>
+
+    <!-- Publications -->
+    <h2>Publications</h2>
+    <div class="card">
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="title">
+            <b>Jie Liu</b>, Yuji Sugihara.
+            <i>Risk Assessment of Rainfall-Induced Landslides by Slope Unit-Based Data Augmentation</i>.
+          </p>
+          <p class="meta">
+            Proceedings of the 41st IAHR World Congress · June 2025 ·
+            <a href="https://doi.org/10.64697/978-90-835589-7-4_41WC-P2023-cd">DOI</a>
+          </p>
+        </li>
+
+        <li class="pub">
+          <p class="title">
+            Yunlong Li, Yuji Sugihara, <b>Jie Liu</b>, Michio Sanjou.
+            <i>Formation Conditions of Brick-Pattern Ripples in Oscillatory Water Flow</i>.
+          </p>
+          <p class="meta">
+            Journal of JSCE, Vol. 13, No. 2 · February 2025 ·
+            <a href="https://doi.org/10.2208/journalofjsce.24-16113">DOI</a>
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <h2>Experience</h2>
+    <div class="card">
+      <ul>
+        <li>
+          <b>Intern</b>, TOKYO C.E.E. Consultants Co., Ltd. (Tokyo, Japan)
+          — Oct 2024 – Nov 2024
+        </li>
+        <li>
+          <b>Head of Support Group</b>, Student Council, Kyushu University
+          — Apr 2023 – Apr 2024
+        </li>
+      </ul>
+    </div>
+
+    <!-- Education -->
+    <h2>Education</h2>
+    <div class="card">
+      <ul>
+        <li><b>Kyushu University</b> — PhD Student</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <h2>Contact</h2>
+    <div class="card">
+      <ul>
+        <li>Email: liu.jie.795.[at].kyushu-u.ac.jp</li>
+        <li>Website: <a href="https://ketsuryuu.github.io/">https://ketsuryuu.github.io/</a></li>
+      </ul>
+    </div>
+
   </div>
-
-  <h2>Research Interests</h2>
-<ul>
-  <li>Rainfall-induced landslide risk assessment</li>
-  <li>Rainfall nowcasting using machine learning</li>
-  <li>Water-level and flood prediction</li>
-  <li>Data augmentation and data assimilation in geoscience</li>
-</ul>
-  <h2>Publications</h2>
-  <ul class="item-list">
-    <li>
-      <div class="item-title">
-        <b>Jie Liu</b>, Yuji Sugihara.<br>
-        <i>Risk Assessment of Rainfall-Induced Landslides by Slope Unit-Based Data Augmentation</i>.<br>
-        Proceedings of the 41st IAHR World Congress.
-      </div>
-      <div class="item-date">June 2025</div>
-      <div class="item-desc">
-        Peer-reviewed international conference paper.
-        (<a href="https://doi.org/10.64697/978-90-835589-7-4_41WC-P2023-cd">DOI</a>)
-      </div>
-    </li>
-
-    <li>
-      <div class="item-title">
-        Yunlong Li, Yuji Sugihara, <b>Jie Liu</b>, Michio Sanjou.<br>
-        <i>Formation Conditions of Brick-Pattern Ripples in Oscillatory Water Flow</i>.<br>
-        Journal of JSCE, Vol. 13, No. 2.
-      </div>
-      <div class="item-date">February 2025</div>
-      <div class="item-desc">
-        Peer-reviewed journal article.
-        (<a href="https://doi.org/10.2208/journalofjsce.24-16113">DOI</a>)
-      </div>
-    </li>
-  </ul>
-
-  <h2>Presentations & Technical Reports</h2>
-  <ul class="item-list">
-    <li>
-      <div class="item-title">
-        <i>Risk Assessment of Rainfall-Induced Landslides in Kitakyushu Area</i>.<br>
-        Poster presentation, The 25th Cross Straits Symposium on Energy and Environmental Science and Technology (CSS-EEST25),
-        IGSES, Kyushu University, Japan.
-      </div>
-      <div class="item-date">November 20–22, 2023</div>
-      <div class="item-desc">
-        (<a href="https://www.tj.kyushu-u.ac.jp/css-eest25/index.php">CSS-EEST25</a>)
-      </div>
-    </li>
-
-    <li>
-      <div class="item-title">
-        <i>IV-27: GISを用いた急傾斜地崩壊危険箇所抽出の高度化について</i>.<br>
-        JSCE Western Branch Research Presentation Meeting, Japan Society of Civil Engineers (JSCE).
-      </div>
-      <div class="item-date">March 5, 2022 </div>
-      <div class="item-desc">
-        (<a href="https://www.jsce.or.jp/branch/seibu/03_study/r_03_kenkyu.html">JSCE Western Branch</a>)
-      </div>
-    </li>
-  </ul>
-
-  <h2>Academic & Professional Experience</h2>
-  <ul class="item-list">
-    <li>
-      <div class="item-title">
-        <b>Intern</b>, Environmental Disaster Prevention / Environmental Monitoring Division,<br>
-        TOKYO C.E.E. Consultants Co., Ltd. (Tokyo, Japan)
-      </div>
-      <div class="item-date">October 2024 – November 2024</div>
-      <div class="item-desc">
-        Participated in environmental and disaster prevention research projects.
-        (<a href="https://www.tokencon.co.jp/">Company website</a>)
-      </div>
-    </li>
-
-    <li>
-      <div class="item-title">
-        <b>Head of Support Group</b>, Student Council,<br>
-        Graduate School of Integrated Science and Technology, Kyushu University
-      </div>
-      <div class="item-date">April 2023 – April 2024</div>
-      <div class="item-desc">
-        Responsible for student support activities and coordination with university administration.
-        (<a href="https://www.tj.kyushu-u.ac.jp/current_stds/student_council.php">Website</a>)
-      </div>
-    </li>
-  </ul>
-
-  <h2>Teaching & Professional Development</h2>
-  <ul class="item-list">
-    <li>
-      <div class="item-title">
-        <b>Program for Future Faculty Development (PFFP)</b>, Kyushu University<br>
-        Certificate of Completion
-      </div>
-      <div class="item-date">2024</div>
-      <div class="item-desc">
-        University-wide professional development program focusing on teaching skills, curriculum design,
-        and academic professionalism.<br>
-        <a href="https://ta-support.kyushu-u.ac.jp/about_program">Program Overview</a> ·
-        <a href="https://mirai.kyushu-u.ac.jp/curriculum/improvement/">Curriculum</a> ·
-        <a href="https://mirai.kyushu-u.ac.jp/topics/2557/">Activities</a>
-      </div>
-    </li>
-  </ul>
-
-  <h2>Scholarships & Awards</h2>
-  <ul class="item-list">
-    <li>
-      <div class="item-title">
-        <b>Yoneyama Memorial Foundation Scholarship</b>
-      </div>
-      <div class="item-date">April 2024 – April 2026</div>
-      <div class="item-desc"></div>
-    </li>
-
-    <li>
-      <div class="item-title">
-        <b>Fukuoka Prefectural International Exchange Center Scholarship</b>
-      </div>
-      <div class="item-date">April 2019 – March 2020</div>
-      <div class="item-desc"></div>
-    </li>
-  </ul>
-
-  <h2>Education</h2>
-  <ul class="item-list">
-    <li>
-      <div class="item-title"><b>Kyushu University</b></div>
-      <div class="item-date">PhD Student</div>
-      <div class="item-desc">
-      </div>
-    </li>
-  </ul>
-
-  <h2>Contact</h2>
-<ul>
-  <li>Email: liu.jie.795.[at].kyushu-u.ac.jp </li>
-  <li>
-    GitHub:
-    <a href="https://ketsuryuu.github.io/">
-      https://ketsuryuu.github.io/
-    </a>
-  </li>
-</ul>
-
 </body>
 </html>
